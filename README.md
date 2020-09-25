@@ -1,3 +1,5 @@
 # 1pan
-Store files into the filecoin network. 
 
+Store uplod files into the filecoin network.
+
+How it works :
