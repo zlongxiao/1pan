@@ -15,8 +15,8 @@ pm2 start main.js
 
 user upload file:
 
-[upload]![image](https://github.com/zlongxiao/1pan/blob/master/upload.png)
+![image](https://github.com/zlongxiao/1pan/blob/master/upload.png)
 
 user file list:
 
-[file list]![image](https://github.com/zlongxiao/1pan/blob/master/files.png)
+![image](https://github.com/zlongxiao/1pan/blob/master/files.png)
