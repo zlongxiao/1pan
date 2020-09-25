@@ -1,0 +1,30 @@
+<div class="navbar navbar-fixed-top navbar-light">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm" href="/">
+                <img alt="一块盘" src="/img/1pan.png" />一块盘</a>
+        </div>
+        <div class="navbar-collapse collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li><a href="/" target="_blank">首页</a></li>
+                <% if (locals.uid != null) {%>
+                    <li><a href="/user/my">个人中心</a></li>
+                <% }else{ %>
+                <li><a href="/user/register">注册</a></li>
+                <li><a href="/user/login">登录</a></li>
+                <% } %>
+                <li><a href="/agreement" target="_blank">协议</a></li>
+                <li><a href="/about" target="_blank">关于</a></li>
+                <% if (locals.uid != null) {%>
+                <li><a href = "javascript:void(0);" onclick ="logout()">退出</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>

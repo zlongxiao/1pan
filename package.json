@@ -1,0 +1,31 @@
+{
+  "name": "xijiecloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bs58": "^4.0.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "float-number": "^2.0.2",
+    "formidable": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "mongojs": "^3.1.0",
+    "multiparty": "^4.2.2",
+    "multistream": "^4.0.0",
+    "node-fetch": "^2.6.0",
+    "node-uuid": "^1.4.8",
+    "response-time": "^2.3.2",
+    "timeout-signal": "^1.1.0",
+    "uuid": "^8.1.0"
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>一块盘-关于 - 传文件，找一块盘（永不限速）</title>
+    <meta name=keywords content=传文件,网盘,云盘,网络硬盘,发文件,收文件,收集文件>
+    <meta name=description content="一块盘，免费空间，一款永不限速的云存储产品。传文件、收文件、网盘，还支持历史记录等高级功能。">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/css/upload.css" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('../head.html'); %>
+    <div class="docs-header" id="content">
+        <div class="container">
+            <h1>个人中心</h1>
+        </div>
+    </div>
+    <div class="container filelist">
+        <div class="row head">
+            <div class="col-md-1">编号</div>
+            <div class="col-md-5">文件名</div>
+            <div class="col-md-1">文件大小</div>
+            <div class="col-md-1">加密</div>
+            <div class="col-md-2">上传日期</div>
+            <div class="col-md-2">获取链接</div>
+        </div>
+        <% let i=1;list.forEach(function(doc){ %>
+        <div class="row item">
+            <div class="col-md-1 index"><%=i %></div>
+            <div class="col-md-5"><%=doc["filename"] %></div>
+            <div class="col-md-1"><%=doc["size"] %></div>
+            <div class="col-md-1">
+                <%if(doc["secret"]){ %>
+                <img style="width:2rem"
+                    src="data:image/png;base64,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"
+                    alt="">
+                <% }else{ %>
+                <img style="width:2rem"
+                    src="data:image/png;base64,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"
+                    alt="">
+                <% }%>
+            </div>
+            <div class="col-md-2"><%=doc["createtime"] %></div>
+            <div class="col-md-2"><a href="javascript:void(0);" data-title="<%= doc['filename'] %>"
+                    data-link="<%= doc['link'] %>" data-id="<%=doc['id'] %>" class="btnLink">链接</a></div>
+
+        </div>
+        <% i++;}); %>
+    </div>
+
+    <div id="modpublicsuccess" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">生成链接</h4>
+                </div>
+                <div class="modal-body">
+                    <p>发布成功</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/qrcode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script>
+        $(function () {
+            $('body').delegate(".btnLink", 'click', function (item) {
+                var title = $(item.target).data("title");
+                var url = $(item.target).data("link");
+                getQrCode(url, title)
+            })
+        });
+        function getQrCode(url, title) {
+            var modal = $('#modpublicsuccess');
+            var content = ["<p>请使用以下链接下载或访问文件</p><br/>",
+                '<div class="input-group">',
+                '<input type="text" class="form-control" id="iptUrl" value="${url}"/>',
+                '<div class="input-group-addon" id="btnCopy">点击复制</div>',
+                '</div>',
+                '<br/>',
+                '<span>右键(或长按)下面图片保存图片转发</span><br/>',
+                '<img id="showImg" src="" style="width:20rem;height:30rem" />',
+                '<div id="qrcodeCanvas" style="position: absolute;opacity: 0;left:-2000px">123</div>',
+                '<canvas id="myCanvas" style="position: absolute;opacity: 0;left:-2000px"></canvas>'];
+            content=content.join("");
+            content=content.replace('${url}',url)
+            modal.find('.modal-body').html(content);
+            modal.modal();
+            createCode(url, title)
+        }
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?26e2ac56b2d568c31b1958984527acbd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</body>
+
+</html>

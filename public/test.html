@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>壹盘</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="/js/qrcode.js"></script>
+</head>
+<body>
+<img src="" alt="" id="showImg">
+<!--二维码画布-->
+<div id="qrcodeCanvas" style="position: absolute;opacity: 0"></div>
+<!--海报图画布-->
+<canvas id="myCanvas" style="position: absolute;opacity: 0"></canvas>
+<script>
+    $('#qrcodeCanvas').html("");
+    var qrcode = new QRCode('qrcodeCanvas', {
+        text: 'http://purifier.wiyoo.cn/wechat/index/index.html',
+        width: 200,
+        height: 200,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    qrcodeImg = $("#qrcodeCanvas img")[0]
+    qrcodeImg.crossOrigin = "anonymous"
+
+    qrcodeImg.onload = function () {
+        //画海报
+        beginDraw()
+    }
+
+    function beginDraw() {
+        //画海报
+        var width = 480
+        var height = 650
+        var c = document.getElementById("myCanvas");
+        c.width = width
+        c.height = height
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, width, height);
+        // ctx.drawImage(qrcodeImg, 0, height - 120, 100, 100);
+        ctx.drawImage(qrcodeImg, 20, 20, width-50, width-50);
+        ctx.fillStyle = "#000";
+        ctx.font = "30px 微软雅黑";
+        ctx.fillText("阿姨的幸福生活.mp4", 20, height - 150);
+
+        ctx.font = "20px 微软雅黑";
+        ctx.fillText("壹块盘-可以赚钱的网盘", 130, height - 80);
+        ctx.fillText("www.1pan.top", 130, height - 40);
+        var img = new Image();
+        img.src = 'http://forke.cn/img/1pan.png';
+        img.crossOrigin = "anonymous"
+        img.onload = function () {
+            ctx.drawImage(img, 20, height - 120, 100, 100);
+            setTimeout(function () {
+                base64_path = c.toDataURL("image/jpeg", 1);
+                $('#showImg').attr('src', base64_path)
+            }, 100)
+        }
+    }
+</script>
+</body>
+</html>
